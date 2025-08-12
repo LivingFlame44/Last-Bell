@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -11,6 +12,8 @@ public class GameManager : MonoBehaviour
     public static int currentLevel = 3;
 
     public LevelType currentLevelType;
+
+    public GameObject entranceNum, exitNum;
     public enum LevelType
     {
         Real,
@@ -34,6 +37,20 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(currentLevel == 0)
+        {
+            entranceNum.GetComponent<TextMeshPro>().text = "G";
+        }
+        else
+        {
+            entranceNum.GetComponent<TextMeshPro>().text = (currentLevel + 1).ToString() ;
+        }
+        
+
+        if(exitNum != null)
+        {
+            exitNum.GetComponent<TextMeshPro>().text = (currentLevel + 1).ToString();
+        }
         
     }
 
