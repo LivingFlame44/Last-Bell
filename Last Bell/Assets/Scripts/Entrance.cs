@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class Entrance : MonoBehaviour
 {
     public GameObject interactText;
+    public bool interacted;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,11 +23,15 @@ public class Entrance : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             interactText.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.E))
+            if (!interacted)
             {
-                ChangeScore();
-                SceneManager.LoadScene(GenerateRandomLevel());
-            }
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    interacted = true;
+                    ChangeScore();
+                    SceneManager.LoadScene(GenerateRandomLevel());
+                }
+            }          
         }
     }
 
@@ -65,8 +70,8 @@ public class Entrance : MonoBehaviour
     {
         if (GameManager.instance.currentLevelType == GameManager.LevelType.Fake)
         {
-            GameManager.currentLevel--;
-            
+            GameManager.currentLevel = GameManager.currentLevel - 1;
+
         }
         else
         {

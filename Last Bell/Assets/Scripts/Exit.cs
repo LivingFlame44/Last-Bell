@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class Exit : MonoBehaviour
 {
     public GameObject interactText;
+    public bool interacted;
     // Start is called before the first frame update
     
     void Start()
@@ -23,11 +24,15 @@ public class Exit : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             interactText.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.E))
+            if (!interacted)
             {
-                ChangeScore();
-                SceneManager.LoadScene(GenerateRandomLevel());
-            }
+                if (Input.GetKeyUp(KeyCode.E))
+                {
+                    interacted = true;
+                    ChangeScore();
+                    SceneManager.LoadScene(GenerateRandomLevel());
+                }
+            }           
         }
     }
 
