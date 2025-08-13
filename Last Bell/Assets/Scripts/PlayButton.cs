@@ -10,9 +10,13 @@ public class PlayButton : MonoBehaviour
     public float fadeDuration = 2f; // slower fade
 
     public DialogueTrigger dialogueRef;
+    public Button playButton; // reference to the Play button
 
     public void PlayGame()
     {
+        if (playButton != null)
+            playButton.interactable = false; // disable the button immediately
+
         StartCoroutine(FadeAndLoad());
     }
 
@@ -40,7 +44,6 @@ public class PlayButton : MonoBehaviour
         dialogueRef.TriggerDialogue();
         //SceneManager.LoadScene(sceneName);
     }
-
 
     public void ChangeScene()
     {

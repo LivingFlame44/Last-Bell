@@ -6137,6 +6137,12 @@ MonoBehaviour:
       choices: []
       onEndLineEvent:
         m_PersistentCalls:
+          m_Calls: []
+    - hasChoice: 0
+      line: Thank God... I'm free!
+      choices: []
+      onEndLineEvent:
+        m_PersistentCalls:
           m_Calls:
           - m_Target: {fileID: 1051058552}
             m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
