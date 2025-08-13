@@ -36,14 +36,17 @@ public class UIManager : MonoBehaviour
     public void MainMenu()
     {
         Time.timeScale = 1f;
-        GameManager.currentLevel = 6;
+        GameManager.currentLevel = 5;
+        GameManager.tutorialDone = false;
+        AudioManager.Instance.musicSource.Stop();
+        AudioManager.Instance.sfxSource.Stop();
         SceneManager.LoadScene("MainMenu");
     }
 
     public void Restart()
     {
         Time.timeScale = 1f;
-        GameManager.currentLevel = 6;
+        GameManager.currentLevel = 5;
         SceneManager.LoadScene("Real Level");
     }
 

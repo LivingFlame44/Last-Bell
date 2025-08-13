@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Real Level.unity
     guid: 5323edd2c87320a47962a69c175f6fcc
   - enabled: 1
+    path: Assets/Scenes/Final Level.unity
+    guid: 25dea810c4d15094d8d1cc1c355a5b2e
+  - enabled: 1
     path: Assets/Scenes/Fake Level (Lights).unity
     guid: e32aacbe011c38b4eac4578fea86bb10
   - enabled: 1
@@ -23,9 +26,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Fake Level (Trashbin Swap).unity
     guid: 73cccc2bfab4ee84f98ae8549ffdc95d
-  - enabled: 0
-    path: Assets/Scenes/Fake Level (ORIGINAL, COPY THIS!).unity
-    guid: 33531d6621b4af64893f30c1d7833ede
   - enabled: 1
     path: Assets/Scenes/Fake Level (No Rooms).unity
     guid: 1ca3f821645830e4e9823e0257ad8f95
@@ -53,9 +53,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Fake Level (Too many Pillars).unity
     guid: 7b296dbff177a854fa6cd4ed4f7b7928
-  - enabled: 1
-    path: Assets/Scenes/Final Level.unity
-    guid: 25dea810c4d15094d8d1cc1c355a5b2e
   - enabled: 1
     path: Assets/Scenes/Fake Level (Too Many Pipes).unity
     guid: 54d92ce7f0ee3504da7c1cca12b0c354

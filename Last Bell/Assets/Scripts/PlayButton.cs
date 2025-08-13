@@ -9,6 +9,8 @@ public class PlayButton : MonoBehaviour
     public RawImage fadeImage;
     public float fadeDuration = 2f; // slower fade
 
+    public DialogueTrigger dialogueRef;
+
     public void PlayGame()
     {
         StartCoroutine(FadeAndLoad());
@@ -35,6 +37,13 @@ public class PlayButton : MonoBehaviour
             yield return null;
         }
 
-        SceneManager.LoadScene(sceneName);
+        dialogueRef.TriggerDialogue();
+        //SceneManager.LoadScene(sceneName);
+    }
+
+
+    public void ChangeScene()
+    {
+        SceneManager.LoadScene("Real Level");
     }
 }

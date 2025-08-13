@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Gate : MonoBehaviour
 {
     public GameObject interactText;
-    public GameObject winPanel;
+    public DialogueTrigger dialogueTrigger;
 
     public bool interacted;
     public UIManager uiManager;
@@ -25,21 +25,13 @@ public class Gate : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            interactText.SetActive(true);
-            if (!interacted)
-            {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    interacted = true;
-                    WinGame();
-                }
-            }
+            dialogueTrigger.TriggerDialogue();
+            //Time.timeScale = 0f;
         }
     }
 
     public void WinGame()
     {
-        Time.timeScale = 0f;
-        winPanel.SetActive(true);
+        
     }
 }

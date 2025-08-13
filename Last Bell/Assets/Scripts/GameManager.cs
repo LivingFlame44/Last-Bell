@@ -1,21 +1,26 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using DG.Tweening;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 
     public static GameManager instance;
 
-    public static int highestLevel = 6;
-    public static int currentLevel = 6;
+    public static int highestLevel = 5;
+    public static int currentLevel = 5;
+
+    public static bool tutorialDone;
 
     public LevelType currentLevelType;
 
     public GameObject entranceNum, exitNum;
 
     public GameObject leftDoor, rightDoor;
+
+    public GameObject tutorialPanel;
     public enum LevelType
     {
         Real,
@@ -55,6 +60,14 @@ public class GameManager : MonoBehaviour
         }
 
         OpenDoor();
+
+        if (!tutorialDone)
+        {
+            StartCoroutine(ShowTutorial());
+        }
+
+        AudioManager.Instance.PlayMusic("Ambient_TenseAtmosphere");
+        AudioManager.Instance.PlaySFX("Ambient_MidnightSFX");
     }
 
     // Update is called once per frame
@@ -72,6 +85,17 @@ public class GameManager : MonoBehaviour
     public void OpenDoor()
     {
         leftDoor.GetComponent<RectTransform>().DOAnchorPos(new Vector2(-1550, 0), 0.7f);
-        rightDoor.GetComponent<RectTransform>().DOAnchorPos(new Vector2(-1630, 0), 1f);
+        rightDoor.GetComponent<RectTransform>().DOAnchorPos(new Vector2(-1630, 0), 1f);      
+    }
+
+    public IEnumerator ShowTutorial()
+    {
+        yield return new WaitForSeconds(1.5f);
+        if (tutorialPanel != null) 
+        {
+            tutorialPanel.SetActive(true);
+        }
+        
+        tutorialDone = true;
     }
 }
