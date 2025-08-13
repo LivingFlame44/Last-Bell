@@ -2,18 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-
+using DG.Tweening;
 public class GameManager : MonoBehaviour
 {
 
     public static GameManager instance;
 
-    public static int highestLevel = 3;
-    public static int currentLevel = 3;
+    public static int highestLevel = 6;
+    public static int currentLevel = 6;
 
     public LevelType currentLevelType;
 
     public GameObject entranceNum, exitNum;
+
+    public GameObject leftDoor, rightDoor;
     public enum LevelType
     {
         Real,
@@ -51,12 +53,25 @@ public class GameManager : MonoBehaviour
         {
             exitNum.GetComponent<TextMeshPro>().text = (currentLevel + 1).ToString();
         }
-        
+
+        OpenDoor();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void CloseDoor()
+    {
+        leftDoor.GetComponent<RectTransform>().DOAnchorPos(new Vector2(-494, 0), 0.7f);
+        rightDoor.GetComponent<RectTransform>().DOAnchorPos(new Vector2(492, 0), 1f);
+    }
+
+    public void OpenDoor()
+    {
+        leftDoor.GetComponent<RectTransform>().DOAnchorPos(new Vector2(-1550, 0), 0.7f);
+        rightDoor.GetComponent<RectTransform>().DOAnchorPos(new Vector2(-1630, 0), 1f);
     }
 }

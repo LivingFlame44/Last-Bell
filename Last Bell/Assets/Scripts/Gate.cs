@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class Gate : MonoBehaviour
 {
     public GameObject interactText;
+    public GameObject winPanel;
+
     public bool interacted;
     public UIManager uiManager;
     // Start is called before the first frame update
@@ -37,6 +39,7 @@ public class Gate : MonoBehaviour
 
     public void WinGame()
     {
-        uiManager.Win();
+        Time.timeScale = 0f;
+        winPanel.SetActive(true);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
-    public GameObject winPanel, PausePanel;
+    public GameObject pausePanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,28 +14,47 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Pause();
+        }
     }
 
-    public void Win()
-    {
-        Time.timeScale = 0f;
-        winPanel.SetActive(true);
-    }
+    //public void Win()
+    //{
+    //    Time.timeScale = 0f;
+    //    winPanel.SetActive(true);
+    //}
 
 
     public void Pause()
     {
-
+        pausePanel.SetActive(true);
+        Time.timeScale = 0f;
     }
     
     public void MainMenu()
     {
+        Time.timeScale = 1f;
+        GameManager.currentLevel = 6;
         SceneManager.LoadScene("MainMenu");
     }
 
     public void Restart()
     {
-        SceneManager.LoadScene("RealLevel");
+        Time.timeScale = 1f;
+        GameManager.currentLevel = 6;
+        SceneManager.LoadScene("Real Level");
+    }
+
+    public void Resume()
+    {
+        Time.timeScale = 1f;
+        pausePanel.SetActive(false);
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 }

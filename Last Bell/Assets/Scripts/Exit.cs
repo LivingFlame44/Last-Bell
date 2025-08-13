@@ -30,7 +30,7 @@ public class Exit : MonoBehaviour
                 {
                     interacted = true;
                     ChangeScore();
-                    SceneManager.LoadScene(GenerateRandomLevel());
+                    StartCoroutine(CloseElevator());
                 }
             }           
         }
@@ -80,5 +80,13 @@ public class Exit : MonoBehaviour
         {
             GameManager.currentLevel = GameManager.currentLevel -1;
         }
+    }
+
+    public IEnumerator CloseElevator()
+    {
+
+        GameManager.instance.CloseDoor();
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(GenerateRandomLevel());
     }
 }

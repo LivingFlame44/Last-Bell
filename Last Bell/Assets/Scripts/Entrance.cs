@@ -29,7 +29,7 @@ public class Entrance : MonoBehaviour
                 {
                     interacted = true;
                     ChangeScore();
-                    SceneManager.LoadScene(GenerateRandomLevel());
+                    StartCoroutine(CloseElevator());
                 }
             }          
         }
@@ -77,5 +77,13 @@ public class Entrance : MonoBehaviour
         {
             GameManager.currentLevel = GameManager.highestLevel;
         }
+    }
+
+    public IEnumerator CloseElevator()
+    {
+
+        GameManager.instance.CloseDoor();
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(GenerateRandomLevel());
     }
 }
